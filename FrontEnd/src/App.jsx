@@ -150,8 +150,7 @@ function App() {
     setError("")
 
     try {
-      const response = await axios.post(
-        "http://localhost:3000/ai/get-review",
+      const response = await axios.post('https://code-reviewer-n7xc.onrender.com/ai/get-review',
         { code },
         {
           timeout: 30000,
