@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  background-color: #1a1a1a;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  background-color: #1a1a1a;
+}
+
+/* Panels */
+main .left,
+main .right {
+  height: 100%;
+  flex-basis: 50%;
+  border-radius: 0.7rem;
+}
+
+main .left {
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+}
+
+.left .code,
+.code pre,
+.code pre code {
+  height: 100%;
+  width: 100%;
+  background-color: #0c0c0c;
+  border-radius: 0.7rem;
+  flex-grow: 1;
+}
+
+/* Error message */
+.error-message {
+  background-color: #ff4444;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Review button */
+main .left .review {
+  background-color: rgb(219, 219, 255);
+  color: #000000;
+  padding: 0.8rem 2rem;
+  margin: 1rem;
+  border-radius: 0.7rem;
+  text-align: center;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+main .left .review.loading {
+  background-color: #a8a8a8;
+  cursor: not-allowed;
+}
+
+/* Right side: AI Review Display */
+main .right {
+  background-color: #343434;
+  padding: 1rem;
+  font-size: 1rem;
+  overflow-y: auto;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* Markdown style */
+.right pre {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+/* ----------- RESPONSIVE ------------ */
+
+/* Tablet and below (stack layout) */
+@media (max-width: 1024px) {
+  main {
+    flex-direction: column;
+  }
+
+  main .left,
+  main .right {
+    height: auto;
+    width: 100%;
+  }
+
+  .code {
+    min-height: 45vh;
+  }
+}
+
+/* Mobile: 360px perfect */
+@media (max-width: 480px) {
+  main {
+    padding: 0.5rem;
+  }
+
+  .code {
+    min-height: 55vh;
+  }
+
+  main .left .review {
+    width: 100%;
+    margin: 0.8rem 0;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  main .right {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+}
